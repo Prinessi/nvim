@@ -186,12 +186,21 @@ return {
   -- add any tools you want to have installed below
   {
     "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup({
+        registries = {
+          "github:mason-org/mason-registry",
+          "github:crashdummyy/mason-registry",
+        },
+      })
+    end,
     opts = {
       ensure_installed = {
         "stylua",
         "shellcheck",
         "shfmt",
         "flake8",
+		"html-lsp",
       },
     },
   },
